@@ -122,7 +122,7 @@ This project aims to classify human microbiome samples by body site (Mouth, Nasa
   Hyperparameter tuning via GridSearchCV.  
   Validation accuracy: ~71.9%
 
-<img width="568" height="424" alt="0d57ccc3-c335-4e5c-9172-2006a1074bf2" src="https://github.com/user-attachments/assets/58c835ce-b58e-4706-8841-8183359e8a9d" />
+<img width="568" height="424" alt="0d57ccc3-c335-4e5c-9172-2006a1074bf2" src="https://github.com/user-attachments/assets/86274ab3-0226-4d86-a829-ec23b400adfc" />
 
 >   . The tuned Random Forest model achieved an overall **accuracy** of **71.9%** on the validation set.
     
@@ -138,7 +138,7 @@ This project aims to classify human microbiome samples by body site (Mouth, Nasa
   Hyperparameter tuning via GridSearchCV.  
   Validation accuracy: ~86.9%
 
-<img width="568" height="424" alt="02a10b24-5a30-4bce-ad4a-c414da051506" src="https://github.com/user-attachments/assets/7951779c-669b-49b0-9f01-b3ddceaa864f" />
+<img width="568" height="424" alt="02a10b24-5a30-4bce-ad4a-c414da051506" src="https://github.com/user-attachments/assets/b3a77644-aabc-4463-9668-aa837ee5fd7d" />
 
 > . The tuned XGBoost model achieved an **accuracy** of **86.9%** on the validation set.
 
@@ -154,7 +154,7 @@ This project aims to classify human microbiome samples by body site (Mouth, Nasa
   Hyperparameter tuning via GridSearchCV.  
   Validation accuracy: ~86.4%
 
-<img width="568" height="424" alt="e193e2ac-0f88-4612-8a74-9a107a626585" src="https://github.com/user-attachments/assets/11780732-e7a2-42f7-bd28-8d03bb6e5278" />
+<img width="568" height="424" alt="e193e2ac-0f88-4612-8a74-9a107a626585" src="https://github.com/user-attachments/assets/21879cfa-fd9d-4d37-b26d-142b46361d93" />
 
 >  . The tuned LightGBM model achieved an **accuracy** of **86.4%**
 
@@ -171,10 +171,30 @@ This project aims to classify human microbiome samples by body site (Mouth, Nasa
 
 ### 5. Model Explainability
 
-- **SHAP:**  
-  Feature importance visualization for each model.
+- **SHAP:**
+   Feature importance visualization for each model.
 
-<img width="714" height="676" alt="5d675b3f-565f-49e0-a5d7-a5e4d2b3cbff" src="https://github.com/user-attachments/assets/0d4bf732-03b3-42f5-b7c3-6507c57ea39c" />
+#### **SHAP(SHapley Additive exPlanations) Explainer**
+<img width="714" height="676" alt="5d675b3f-565f-49e0-a5d7-a5e4d2b3cbff" src="https://github.com/user-attachments/assets/b9f3f4e1-e945-4fbc-af27-ace2bca08671" />
+
+  > **Feature Importance (SHAP/RandomForest Plot)**
+
+> . The plot above shows that your most influential features used by the RandomForest model in predicting microbiome sample type (Mouth, Nasal, Skin, Stool) are:
+
+| Feature                  | Notes                                                                             |
+| ------------------------ | --------------------------------------------------------------------------------- |
+| **avg\_read\_length**    | Most influential — possibly reflects sequencing protocol or sample complexity. |
+| **gc\_content**          | Strongly indicative of microbial composition.                                     |
+| **read\_count**          | A proxy for sequencing depth, which can hint at biomass or complexity.            |
+| **Adj\_age**             | Possibly reflects host factors affecting microbiome.                              |
+| Others (OGTT, BMI, etc.) | Minor contributions — possibly useful in ensemble or stacked models.              |
+
+> . Biological features (cytokines, metadata) have low influence compared to sequence-derived stats. This suggests the sequencing features carry the bulk of predictive signal. 
+
+#### **SHAP(SHapley Additive exPlanations) Explainer**
+<img width="711" height="676" alt="2b96c442-50ab-4b20-b954-0d2f5bfea38e" src="https://github.com/user-attachments/assets/8d6c5f76-0b63-4c88-a3ea-a08639ccf1aa" />
+  
+  > **Feature Importance (SHAP/XGBoost Plot)**
 
 > . The plot above shows that your most influential features used by the XGBoost model in predicting microbiome sample type (Mouth, Nasal, Skin, Stool) are:
 
@@ -188,8 +208,73 @@ This project aims to classify human microbiome samples by body site (Mouth, Nasa
 
 > . Biological features (cytokines, metadata) have low influence compared to sequence-derived stats. This suggests the sequencing features carry the bulk of predictive signal.
 
+#### **SHAP(SHapley Additive exPlanations) Explainer**
+<img width="711" height="676" alt="a250778e-3ec1-4344-8d1a-5a9a838e690c" src="https://github.com/user-attachments/assets/8a27567f-8adf-4eda-9fb4-2ff7f87a32d2" />
+
+  > **Feature Importance (SHAP/LighGBM Plot)**
+
+ > . The plot above shows that your most influential features used by the model(LightGBM - Tuned) in predicting microbiome sample type (Mouth, Nasal, Skin, Stool) are:
+
+| Feature                  | Notes                                                                             |
+| ------------------------ | --------------------------------------------------------------------------------- |
+| **avg\_read\_length**    | Most influential — possibly reflects sequencing protocol or sample complexity. |
+| **gc\_content**          | Strongly indicative of microbial composition.                                     |
+| **read\_count**          | A proxy for sequencing depth, which can hint at biomass or complexity.            |
+| **Adj\_age**             | Possibly reflects host factors affecting microbiome.                              |
+| Others (OGTT, BMI, etc.) | Minor contributions — possibly useful in ensemble or stacked models.              |
+
+
+ > . Biological features (cytokines, metadata) have low influence compared to sequence-derived stats. This suggests the sequencing features carry the bulk of predictive signal.
+
 - **LIME:**  
   Interactive explanations in Gradio app.
+
+---
+
+## Key Takeaway for the validation Set Performance in each model
+
+Validation Set Performance (RandomForest):
+Accuracy: 0.7194
+Classification Report:
+              precision    recall  f1-score   support
+
+       Mouth       0.77      0.77      0.77       119
+       Nasal       0.61      0.66      0.64       142
+        Skin       0.82      0.83      0.83       158
+       Stool       0.68      0.62      0.65       162
+
+    accuracy                           0.72       581
+   macro avg       0.72      0.72      0.72       581
+weighted avg       0.72      0.72      0.72       581
+
+Validation Set Performance (XGBoost - Tuned):
+Accuracy: 0.8692
+Classification Report:
+              precision    recall  f1-score   support
+
+       Mouth       0.88      0.88      0.88       119
+       Nasal       0.87      0.78      0.82       142
+        Skin       0.91      0.91      0.91       158
+       Stool       0.82      0.90      0.86       162
+
+    accuracy                           0.87       581
+   macro avg       0.87      0.87      0.87       581
+weighted avg       0.87      0.87      0.87       581
+
+Validation Set Performance (LightGBM - Tuned):
+Accuracy: 0.8640
+Classification Report:
+              precision    recall  f1-score   support
+
+       Mouth       0.87      0.86      0.86       119
+       Nasal       0.87      0.79      0.83       142
+        Skin       0.89      0.91      0.90       158
+       Stool       0.83      0.90      0.86       162
+
+    accuracy                           0.86       581
+   macro avg       0.87      0.86      0.86       581
+weighted avg       0.86      0.86      0.86       581
+
 
 ### 6. Deployment
 
@@ -209,8 +294,6 @@ https://9e87d9862b20f2f7df.gradio.live
     - Accuracy: 86.9%
     - Most influential features: `avg_read_length`, `gc_content`, `read_count`, `Adj_age`
     - Biological metadata (cytokines, etc.) had lower influence than sequence-derived features.
-
-<img width="568" height="424" alt="02a10b24-5a30-4bce-ad4a-c414da051506" src="https://github.com/user-attachments/assets/2d595dd2-4292-48a1-9181-27c5828b0b6d" />
 
 - **Deployment:**  
   Gradio app for user-friendly predictions and model interpretability.
@@ -256,15 +339,6 @@ Challenge data from [Zindi: MPEG-G Microbiome Classification Challenge](https://
 
 ---
 
-## Contact
-
-For questions or collaboration or for an open issue, please contact the project owners
-
-- **JUDAH SAMUEL**- Judahsamuel.19@gmail.com
-- **DOREEN KAHARE**- 
-- **YVONNE KARINGE**- karingeyvonne@gmail.com
-
----
 
 
 ## **In Summary**
@@ -323,3 +397,17 @@ This project builds a machine learning pipeline to classify human microbiome sam
 ### Citation
 
 Challenge data from [Zindi: MPEG-G Microbiome Classification Challenge](https://zindi.africa/competitions/mpeg-g-microbiome-classification-challenge).
+
+---
+
+## Contact
+
+For questions or collaboration or for an open issue, please contact the project owners
+
+- **JUDAH SAMUEL**- Judahsamuel.19@gmail.com
+- **DOREEN KAHARE**- 
+- **YVONNE KARINGE**- karingeyvonne@gmail.com
+
+---
+
+
