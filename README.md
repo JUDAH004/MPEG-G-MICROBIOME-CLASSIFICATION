@@ -400,7 +400,7 @@ Challenge data from [Zindi: MPEG-G Microbiome Classification Challenge](https://
 For questions or collaboration or for an open issue, please contact the project owners
 
 - **JUDAH SAMUEL**- Judahsamuel.19@gmail.com
-- **DOREEN KAHARE**- 
+- **DOREEN KAHARE**- doreenkahare24@gmail.com
 - **YVONNE KARINGE**- karingeyvonne@gmail.com
 
 ---
