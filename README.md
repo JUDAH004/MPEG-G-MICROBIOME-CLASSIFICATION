@@ -16,6 +16,7 @@ This project aims to build a classification model that can predict microbiome sa
 - [Results](#results)
 - [How to Run](#how-to-run)
 - [Dependencies](#dependencies)
+- [README.md Summary](#In'Summary)
 - [Citation](#citation)
 - [Contact](#contact)
 
@@ -231,7 +232,7 @@ This project aims to classify human microbiome samples by body site (Mouth, Nasa
 
 ---
 
-## Key Takeaway for the validation Set Performance in each model
+## KeyTakeaway_for_the_validation_Set_Performance_in_each_model
 
 Validation Set Performance (RandomForest):
 Accuracy: 0.7194
@@ -333,15 +334,7 @@ https://9e87d9862b20f2f7df.gradio.live
 
 ---
 
-## Citation
-
-Challenge data from [Zindi: MPEG-G Microbiome Classification Challenge](https://zindi.africa/competitions/mpeg-g-microbiome-classification-challenge).
-
----
-
-
-
-## **In Summary**
+## **In'Summary**
 
 ### Overview
 This project builds a machine learning pipeline to classify human microbiome samples by body site (Mouth, Nasal, Skin, Stool) using 16S rRNA gene profiles stored in MPEG-G format. It leverages metadata and cytokine profiles, and explores federated learning for privacy-aware collaboration.
@@ -393,6 +386,8 @@ This project builds a machine learning pipeline to classify human microbiome sam
 - **Best Model:** Tuned XGBoost (accuracy: 86.9%)
 - **Key Features:** avg_read_length, gc_content, read_count, Adj_age
 - **Deployment:** Interactive Gradio app with LIME explanations](https://zindi.africa/competitions/mpeg-g-microbiome-classification-challenge)
+
+---
 
 ### Citation
 
