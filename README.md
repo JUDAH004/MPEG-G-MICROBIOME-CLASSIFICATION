@@ -16,7 +16,7 @@ This project aims to build a classification model that can predict microbiome sa
 - [Results](#results)
 - [How to Run](#how-to-run)
 - [Dependencies](#dependencies)
-- [README.md Summary](#In'Summary)
+- [In'Summary](#in'Summary)
 - [Citation](#citation)
 - [Contact](#contact)
 
@@ -87,7 +87,7 @@ This project aims to classify human microbiome samples by body site (Mouth, Nasa
 - Dimensionality reduction (t-SNE, PCA) for data visualization.
 
 ### t-SNE Projection of Microbiome Features
-<img width="571" height="424" alt="d45b9f43-2086-4495-ba3d-32e22706c4dc" src="https://github.com/user-attachments/assets/1357de61-49ff-4f1c-ab34-496cc6a10ec0" />
+!<img width="571" height="424" alt="d45b9f43-2086-4495-ba3d-32e22706c4dc" src="https://github.com/user-attachments/assets/1357de61-49ff-4f1c-ab34-496cc6a10ec0" />
 
  > . The t-SNE projection captures **non-linear relationships**, grouping microbiome samples into tighter, more distinct local clusters by body site. It excels at showing local similarities but does not preserve global distances.
 
@@ -98,7 +98,7 @@ This project aims to classify human microbiome samples by body site (Mouth, Nasa
  > . The t-SNE plot is great for visualizing **high-dimensional biological data** with subtle patterns.
 
 ### PCA Projection of Microbiome Features
-<img width="568" height="424" alt="55dad154-ef17-4858-a701-434031225e1e" src="https://github.com/user-attachments/assets/589015d2-2c27-4f9e-968a-0187b5f0bf2c" />
+!<img width="568" height="424" alt="55dad154-ef17-4858-a701-434031225e1e" src="https://github.com/user-attachments/assets/589015d2-2c27-4f9e-968a-0187b5f0bf2c" />
 
 > . PCA captures **linear relationships**, overall **variance structure** and is useful for **feature interpretability**
 
@@ -123,7 +123,7 @@ This project aims to classify human microbiome samples by body site (Mouth, Nasa
   Hyperparameter tuning via GridSearchCV.  
   Validation accuracy: ~71.9%
 
-<img width="568" height="424" alt="0d57ccc3-c335-4e5c-9172-2006a1074bf2" src="https://github.com/user-attachments/assets/86274ab3-0226-4d86-a829-ec23b400adfc" />
+!<img width="568" height="424" alt="0d57ccc3-c335-4e5c-9172-2006a1074bf2" src="https://github.com/user-attachments/assets/86274ab3-0226-4d86-a829-ec23b400adfc" />
 
 >   . The tuned Random Forest model achieved an overall **accuracy** of **71.9%** on the validation set.
     
@@ -139,7 +139,7 @@ This project aims to classify human microbiome samples by body site (Mouth, Nasa
   Hyperparameter tuning via GridSearchCV.  
   Validation accuracy: ~86.9%
 
-<img width="568" height="424" alt="02a10b24-5a30-4bce-ad4a-c414da051506" src="https://github.com/user-attachments/assets/b3a77644-aabc-4463-9668-aa837ee5fd7d" />
+!<img width="568" height="424" alt="02a10b24-5a30-4bce-ad4a-c414da051506" src="https://github.com/user-attachments/assets/b3a77644-aabc-4463-9668-aa837ee5fd7d" />
 
 > . The tuned XGBoost model achieved an **accuracy** of **86.9%** on the validation set.
 
@@ -155,7 +155,7 @@ This project aims to classify human microbiome samples by body site (Mouth, Nasa
   Hyperparameter tuning via GridSearchCV.  
   Validation accuracy: ~86.4%
 
-<img width="568" height="424" alt="e193e2ac-0f88-4612-8a74-9a107a626585" src="https://github.com/user-attachments/assets/21879cfa-fd9d-4d37-b26d-142b46361d93" />
+!<img width="568" height="424" alt="e193e2ac-0f88-4612-8a74-9a107a626585" src="https://github.com/user-attachments/assets/21879cfa-fd9d-4d37-b26d-142b46361d93" />
 
 >  . The tuned LightGBM model achieved an **accuracy** of **86.4%**
 
@@ -176,7 +176,7 @@ This project aims to classify human microbiome samples by body site (Mouth, Nasa
    Feature importance visualization for each model.
 
 #### **SHAP(SHapley Additive exPlanations) Explainer**
-<img width="714" height="676" alt="5d675b3f-565f-49e0-a5d7-a5e4d2b3cbff" src="https://github.com/user-attachments/assets/b9f3f4e1-e945-4fbc-af27-ace2bca08671" />
+!<img width="714" height="676" alt="5d675b3f-565f-49e0-a5d7-a5e4d2b3cbff" src="https://github.com/user-attachments/assets/b9f3f4e1-e945-4fbc-af27-ace2bca08671" />
 
   > **Feature Importance (SHAP/RandomForest Plot)**
 
@@ -193,7 +193,7 @@ This project aims to classify human microbiome samples by body site (Mouth, Nasa
 > . Biological features (cytokines, metadata) have low influence compared to sequence-derived stats. This suggests the sequencing features carry the bulk of predictive signal. 
 
 #### **SHAP(SHapley Additive exPlanations) Explainer**
-<img width="711" height="676" alt="2b96c442-50ab-4b20-b954-0d2f5bfea38e" src="https://github.com/user-attachments/assets/8d6c5f76-0b63-4c88-a3ea-a08639ccf1aa" />
+!<img width="711" height="676" alt="2b96c442-50ab-4b20-b954-0d2f5bfea38e" src="https://github.com/user-attachments/assets/8d6c5f76-0b63-4c88-a3ea-a08639ccf1aa" />
   
   > **Feature Importance (SHAP/XGBoost Plot)**
 
@@ -210,7 +210,7 @@ This project aims to classify human microbiome samples by body site (Mouth, Nasa
 > . Biological features (cytokines, metadata) have low influence compared to sequence-derived stats. This suggests the sequencing features carry the bulk of predictive signal.
 
 #### **SHAP(SHapley Additive exPlanations) Explainer**
-<img width="711" height="676" alt="a250778e-3ec1-4344-8d1a-5a9a838e690c" src="https://github.com/user-attachments/assets/8a27567f-8adf-4eda-9fb4-2ff7f87a32d2" />
+!<img width="711" height="676" alt="a250778e-3ec1-4344-8d1a-5a9a838e690c" src="https://github.com/user-attachments/assets/8a27567f-8adf-4eda-9fb4-2ff7f87a32d2" />
 
   > **Feature Importance (SHAP/LighGBM Plot)**
 
